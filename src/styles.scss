@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+  width: 10rem;
+  border-radius: 2rem;
+  padding: 1rem;
+}
