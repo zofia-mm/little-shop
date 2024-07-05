@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.card {
-  width: 10rem;
-  border-radius: 2rem;
-  padding: 1rem;
+button.button {
+  width: 5rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
 }
