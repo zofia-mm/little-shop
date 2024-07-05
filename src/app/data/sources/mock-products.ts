@@ -6,5 +6,4 @@ export const PRODUCTS: Product[] = [
     { id: 3, name: 'yellow candle', price: 10 },
     { id: 4, name: 'green candle', price: 12 },
     { id: 5, name: 'purple candle', price: 12 }
-
 ] 

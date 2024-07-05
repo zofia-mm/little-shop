@@ -1,19 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
 import { Product } from '../interfaces/product';
-import { PRODUCTS } from '../sources/mock-products';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService
 {
-  getProducts(): Observable<Product[]> {
-    return of( PRODUCTS );
+  private productsUrl = 'api/products';
+  constructor(
+    private http: HttpClient
+  ) {}
+
+  private handleError<T>( operation = 'operation', result?: T ) {
+    return ( error: any ): Observable<T> => {
+      console.error( `ProductsService: ${operation} failed: ${error.message}` );
+      return of( result as T );
+    }
   }
 
-  /** id hardcoded to exist! */
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>( this.productsUrl ).pipe(
+      catchError( this.handleError<Product[]>( 'getProducts', [] ) )
+    );
+  }
+
   getProduct( id: number ): Observable<Product> {
-    return of( PRODUCTS.find( product => product.id == id )! );
+    const url = `${ this.productsUrl }/${ id }`;
+    return this.http.get<Product>( url ).pipe(
+      catchError( this.handleError<Product>( 'getProduct' ) )
+    );
   }
 }
