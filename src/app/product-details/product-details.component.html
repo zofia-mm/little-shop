@@ -1,7 +1,8 @@
-<div class="w-fit p-4 bg-primary">
-  <p> {{ product?.name }} {{ product?.price }} </p>
+<div class="w-96 p-4 bg-slate-300 flex flex-col items-center">
+  <p> {{ product?.name }} </p>
+  <p class="pb-4"> price: {{ product?.price }} </p>
   <button
-    class="button bg-secondary"
+    class="button bg-blue-300"
     (click)="navigateBack()"
   > back </button>
 </div>
