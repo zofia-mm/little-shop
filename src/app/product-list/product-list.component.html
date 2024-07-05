@@ -1,4 +1,4 @@
 <h2> {{ "products" | uppercase }} </h2>
 <div *ngFor="let product of products">
-    {{ product.name }}
+    <a routerLink="/product/{{ product.id }}"> {{ product.name }} </a>
 </div>
