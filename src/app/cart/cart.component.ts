@@ -3,8 +3,6 @@ import { CartService } from '../data/services/cart.service';
 import { ProductsService } from '../data/services/products.service';
 import { Product } from '../data/interfaces/product';
 
-interface cartItem { product: Product, amount: number }
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
