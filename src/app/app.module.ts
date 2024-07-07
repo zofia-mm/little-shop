@@ -9,12 +9,14 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './data/sources/in-memory-data.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule, CommonModule, AppRoutingModule, HttpClientModule,
