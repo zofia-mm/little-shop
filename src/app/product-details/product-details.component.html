@@ -1,8 +1,23 @@
 <div class="w-96 p-4 bg-slate-100 flex flex-col items-center">
-  <p> {{ product?.name }} </p>
-  <p class="pb-4"> price: {{ product?.price }} </p>
-  <button
-    class="button bg-blue-500 text-white"
-    (click)="navigateBack()"
-  > back </button>
+
+  <div class="w-full">
+    <button
+      class="button-tertiary w-fit"
+      (click)="navigateBack()"
+    > back </button>
+  </div>
+
+  <div class="my-5">
+    <p> {{ product?.name }} </p>
+    <p> price: {{ product?.price }} </p>  
+  </div>
+
+  <div class="flex flex-row gap-4">
+    <input
+      type="number"
+      class="w-20 p-2"
+    >
+    <button class="button-primary w-36"> Add to Cart </button>
+  </div>
+
 </div>
