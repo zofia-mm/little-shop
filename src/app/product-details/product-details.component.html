@@ -8,16 +8,14 @@
   </div>
 
   <div class="my-5">
-    <p> {{ product?.name }} </p>
-    <p> price: {{ product?.price }} </p>  
+    <p> {{ productCart?.product?.name }} </p>
+    <p> price: {{ productCart?.product?.price }} </p>  
   </div>
 
-  <div class="flex flex-row gap-4">
-    <input
-      type="number"
-      class="w-20 p-2"
-    >
-    <button class="button-primary w-36"> Add to Cart </button>
+  <div class="flex flex-row gap-4" *ngIf="productCart">
+    <input type="number" class="w-20 p-2"
+      [(ngModel)]="productCart!.amount">
+    <button class="button-primary w-36" (click)="addToCart()"> Add to Cart </button>
   </div>
 
 </div>

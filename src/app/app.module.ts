@@ -10,17 +10,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './data/sources/in-memory-data.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CartComponent } from './cart/cart.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    CartComponent
   ],
   imports: [
-    BrowserModule, CommonModule, AppRoutingModule, HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot( InMemoryDataService, { dataEncapsulation: false } )
+    BrowserModule, CommonModule, AppRoutingModule, FormsModule,
+    HttpClientModule, HttpClientInMemoryWebApiModule.forRoot( InMemoryDataService, { dataEncapsulation: false } )
   ],
   providers: [],
   bootstrap: [AppComponent]

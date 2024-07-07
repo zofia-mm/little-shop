@@ -3,6 +3,8 @@ import { Product } from '../data/interfaces/product';
 import { ProductsService } from '../data/services/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { ProductCart } from '../data/interfaces/product-cart';
+import { CartService } from '../data/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,21 +13,26 @@ import { Location } from '@angular/common';
 })
 export class ProductDetailsComponent implements OnInit
 {
-  product: Product | undefined;
+  productCart: ProductCart | undefined;
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
     const id = Number( this.route.snapshot.paramMap.get( 'id' ) );
     this.productService.getProduct( id ).subscribe(
-      it => this.product = it
+      it => this.productCart = { product: it, amount: 1 }
     );
   }
 
   navigateBack() {
     this.location.back();
+  }
+
+  addToCart() {
+    this.cartService.addToCart( this.productCart! )
   }
 }
