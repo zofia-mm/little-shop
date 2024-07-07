@@ -3,7 +3,6 @@ import { Product } from '../data/interfaces/product';
 import { ProductsService } from '../data/services/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ProductCart } from '../data/interfaces/product-cart';
 import { CartService } from '../data/services/cart.service';
 
 @Component({

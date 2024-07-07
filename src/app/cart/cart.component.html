@@ -1,1 +1,3 @@
-<p *ngFor="let item of cartItems | keyvalue"> {{ item.value }} - {{ item.key }} </p>
+<p *ngFor="let item of cartItems | keyvalue">
+  {{ cartAmounts.get( item.key ) }} - {{ item.value.name }}
+</p>
