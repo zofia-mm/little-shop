@@ -1,4 +1,4 @@
-<div class="w-fit p-4 bg-slate-100 flex flex-col">
+<div *ngIf="product" class="w-fit p-4 bg-slate-100 flex flex-col">
 
   <div class="w-full">
     <button
@@ -8,13 +8,13 @@
   </div>
 
   <div class="my-5">
-    <p> {{ productCart?.product?.name }} </p>
-    <p> price: {{ productCart?.product?.price }} </p>  
+    <p> {{ product.name }} </p>
+    <p> price: {{ product.price }} </p>  
   </div>
 
-  <div class="flex flex-row gap-4" *ngIf="productCart">
+  <div class="flex flex-row gap-4">
     <input type="number" class="w-20 p-2"
-      [(ngModel)]="productCart!.amount">
+      [(ngModel)]="amount">
     <button class="button-primary w-36" (click)="addToCart()"> Add to Cart </button>
   </div>
 

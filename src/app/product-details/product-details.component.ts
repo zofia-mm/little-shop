@@ -13,7 +13,8 @@ import { CartService } from '../data/services/cart.service';
 })
 export class ProductDetailsComponent implements OnInit
 {
-  productCart: ProductCart | undefined;
+  amount: number = 1;
+  product: Product | undefined;
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute,
@@ -23,9 +24,9 @@ export class ProductDetailsComponent implements OnInit
 
   ngOnInit(): void {
     const id = Number( this.route.snapshot.paramMap.get( 'id' ) );
-    this.productService.getProduct( id ).subscribe(
-      it => this.productCart = { product: it, amount: 1 }
-    );
+    this.productService.getProduct( id ).subscribe( it => {
+      this.product = it;
+    } );
   }
 
   navigateBack() {
@@ -33,6 +34,6 @@ export class ProductDetailsComponent implements OnInit
   }
 
   addToCart() {
-    this.cartService.addToCart( this.productCart! )
+    this.cartService.addToCart( this.product!.id, this.amount )
   }
 }

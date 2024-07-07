@@ -1,22 +1,19 @@
 import { Injectable } from '@angular/core';
-import { ProductCart } from '../interfaces/product-cart';
-import { Product } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService
 {
-  items = new Map<Product, number>;
+  items = new Map<number, number>; // productId => amount
 
-  addToCart( productCart: ProductCart ) {
-    const product = productCart.product;
+  addToCart( productId: number, amount: number ) {
 
-    if( this.items.has( product ) ) {
-      this.items.set( product, this.items.get( product )! + productCart.amount );
+    if( this.items.has( productId ) ) {
+      this.items.set( productId, this.items.get( productId )! + amount );
       return;
     }
 
-    this.items.set( productCart.product, productCart.amount );
+    this.items.set( productId, amount );
   }
 }
