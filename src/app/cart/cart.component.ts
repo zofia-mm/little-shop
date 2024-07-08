@@ -21,5 +21,18 @@ export class CartComponent implements OnInit
       this.productService.getProduct( productId )
         .subscribe( it => { this.cartItems.set( productId, { product: it, amount: amount } ) });
     } );
+
+    // TODO : remove
+    this.productService.getProduct( 2 )
+    .subscribe( it => { this.cartItems.set( 2, { product: it, amount: 3 } ) });
+  }
+
+  onChangeAmount( newAmount: number, productId: number ) {
+    this.cart.changeAmount( productId, newAmount );
+  }
+
+  onRemove( productId: number ) {
+    this.cartItems.delete( productId );
+    this.cart.remove( productId );
   }
 }

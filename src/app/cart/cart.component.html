@@ -1,3 +1,18 @@
-<p *ngFor="let item of cartItems | keyvalue">
-  {{ item.value.amount }} - {{ item.value.product.name }}
-</p>
+<div class="flex flex-row items-center bg-slate-100 mb-4"
+  *ngFor="let item of cartItems | keyvalue">
+
+  <div class="w-20 h-20 bg-cover bg-center"
+    style="background-image: url(assets/placeholder.png);">
+  </div>
+
+  <div class="p-4 flex flex-row items-center gap-4">
+    <p class="w-48">
+      {{ item.value.product.name }}
+    </p>
+    <!-- TODO: number input ignores min/max on key input -->
+    <input class="w-20 p-2"
+      type="number" [min]="1" [max]="64"
+      [(ngModel)]="item.value.amount" (ngModelChange)="onChangeAmount( $event, item.key )">
+    <button class="button-tertiary text-red-400" (click)="onRemove( item.key )">delete</button>
+  </div>
+</div>

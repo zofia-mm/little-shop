@@ -33,7 +33,7 @@ export class ProductDetailsComponent implements OnInit
   }
 
   addToCart() {
-    this.cartService.addToCart( this.product!.id, this.amount );
+    this.cartService.add( this.product!.id, this.amount );
     this.navigateBack();
   }
 }
