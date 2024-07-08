@@ -1,21 +1,22 @@
-<div *ngIf="product" class="w-fit p-4 bg-slate-100 flex flex-col">
+<div *ngIf="product" class="w-fit bg-slate-100 flex flex-row">
 
-  <div class="w-full">
-    <button
-      class="button-tertiary w-fit"
-      (click)="navigateBack()"
-    > back </button>
+  <div class="w-72 h-72 bg-slate-200 flex bg-cover bg-no-repeat bg-center"
+    style="background-image: url(assets/placeholder.png);">
   </div>
 
-  <div class="my-5">
-    <p> {{ product.name }} </p>
-    <p> price: {{ product.price }} </p>  
-  </div>
+  <div class="flex flex-col gap-8 p-4">
 
-  <div class="flex flex-row gap-4">
-    <input type="number" class="w-20 p-2"
-      [(ngModel)]="amount">
-    <button class="button-primary w-36" (click)="addToCart()"> Add to Cart </button>
+    <div class="mb-5">
+      <p class="text-2xl font-bold"> {{ product.name }} </p>
+      <p> price: {{ product.price }} </p>  
+    </div>
+
+    <div class="flex flex-row gap-4">
+      <input type="number" class="w-20 p-2"
+        [(ngModel)]="amount">
+      <button class="button-primary w-36" (click)="addToCart()"> Add to Cart </button>
+    </div>
+
   </div>
 
 </div>
